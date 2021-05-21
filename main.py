@@ -1,9 +1,7 @@
 # Criar um programa que gere um número de 1 a 100 e que o usuário deve ficar tentando até adivinhar
 # o programa também deve dar dicas (maior ou menor) e ter uma validação de erros do tipo ValueError
-
 from time import sleep
 from functions import colors, clear, titulo, gerado, usuario, continuar
-
 
 num = gerado()
 tentativa = 0
@@ -39,12 +37,6 @@ while continua:
                 tentativa +=1
         sleep(1.7)
         
-        
     except ValueError:
         print(f'{colors.red_bold}[ERRO] {colors.red}Por favor, digite um número inteiro.{colors.end}')
         sleep(2)
-        
-    
-
-
-

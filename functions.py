@@ -2,7 +2,6 @@ import os
 from random import randrange
 from time import sleep
 
-
 class colors():
     red = '\033[31m'
     green = '\033[32m'
@@ -26,6 +25,7 @@ class colors():
 
 def clear():
     return os.system('cls' if os.name=='nt' else 'clear')
+
 
 def titulo():
     def traços():
@@ -70,5 +70,4 @@ def continuar():
             return False
         else:
             print(f'{colors.red_bold}[ERRO] {colors.red}Por favor, responda com "s" ou "n".{colors.end}')
-        
-        
+
