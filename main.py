@@ -11,11 +11,20 @@ class colors():
     blue = '\033[36m'
     yellow = '\033[33m'
     pink = '\033[35m'
-    white = '\033[30m'
+    white = '\033[37m'
     end = '\033[m'
     
     red_bold = '\033[31;1m'
+    green_bold = '\033[32;1m'
+    blue_bold = '\033[36;1m'
+    yellow_bold = '\033[33;1m'
+    pink_bold = '\033[35;1m'
+    white_bold = '\033[37;1m'
 
+    blue_back = '\033[46;35;1m'
+    yellow_back = '\033[43;31;1m'
+    pink_back = '\033[45;36;1m'
+    
 
 def clear():
     return os.system('cls' if os.name=='nt' else 'clear')
@@ -24,39 +33,42 @@ def titulo():
     def traços():
         print('|'+(' '*28)+'|')
         
-    print('#'*30)
+    print(f'{colors.blue_back}.'*30)
     traços()
     traços()
-    print('|     ADIVINHE O NÚMERO!     |'.center(30))
+    print('|ADIVINHE O NÚMERO DE 1 A 100|'.center(30))
     traços()
     traços()
-    print('#'*30)
+    print('.'*30)
+    print(colors.end)
     
     
 def gerado():
-    num = randrange(1,101)
+    num = randrange(1,2)
     return num
 
 
 def usuario():
     print('')
-    user = int(input('Que número pensei? '))
+    user = int(input(f'{colors.yellow}Que número pensei? {colors.end}'))
     return user
 
 
 def continuar():
     while True:
         again = str(input('Deseja jogar novamente? (s/n) '))
-        if again.lower().strip()[0] == 's':
-            print('Ok! Vamos jogar novamente!')
+        
+        if again.lower().strip() == 's':
+            print(f'{colors.green}Ok! Vamos jogar novamente!{colors.end}')
+            sleep(0.8)
             return True
-        elif again.lower().strip()[0] == 'n':
+        elif again.lower().strip() == 'n':
             clear()
-            print('Ok!')
+            print(f'{colors.pink}Ok!')
             sleep(0.7)
             print('Finalizando jogo...')
             sleep(0.7)
-            print('Até a próxima!')
+            print(f'Até a próxima!{colors.end}')
             return False
         else:
             print(f'{colors.red_bold}[ERRO] {colors.red}Por favor, responda com "s" ou "n".{colors.end}')
@@ -69,7 +81,7 @@ tentativa = 0
 continua = True
 clear()
 
-input('Pressione ENTER para inciar...')
+input(f'{colors.yellow}Pressione ENTER para inciar...{colors.end}')
 while continua:
     try:
         sleep(0.3)
@@ -78,23 +90,23 @@ while continua:
         
         user = usuario()
         
-        print(f'Você chutou {user}')
+        print(f'Você chutou {colors.pink_bold}{user}{colors.end}')
         sleep(1.5)
         if user == num and tentativa == 0:
-            print('UAU! VOCÊ VENCEU DE PRIMEIRA! MUITO BEM!')
+            print(f'{colors.green}UAU! VOCÊ VENCEU {colors.blue}DE PRIMEIRA{colors.green}!MUITO BEM!{colors.end}')
             continua = continuar()
         elif user == num:
             tentativa += 1
-            print(f'Parabéns! Você acertou com um total de {tentativa} tentativas!')
+            print(f'{colors.green}Parabéns! Você acertou com um total de {colors.blue}{tentativa} tentativas{colors.green}!{colors.end}')
             continua = continuar()
         else:
             if user > num:
-                print('Não foi dessa vez. Chute um número MENOR!')
+                print(f'Não foi dessa vez. Chute um número {colors.red_bold}MENOR!{colors.end}')
                 tentativa +=1
             elif user < num:
-                print('Não foi dessa vez. Chute um número MAIOR!')
+                print(f'Não foi dessa vez. Chute um número {colors.green_bold}MAIOR!{colors.end}')
                 tentativa +=1
-        sleep(2.5)
+        sleep(1.7)
         
         
     except ValueError:
