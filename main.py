@@ -21,7 +21,7 @@ class colors():
     pink_bold = '\033[35;1m'
     white_bold = '\033[37;1m'
 
-    blue_back = '\033[46;35;1m'
+    blue_back = '\033[46;31;1m'
     yellow_back = '\033[43;31;1m'
     pink_back = '\033[45;36;1m'
     
@@ -93,7 +93,7 @@ while continua:
         print(f'Você chutou {colors.pink_bold}{user}{colors.end}')
         sleep(1.5)
         if user == num and tentativa == 0:
-            print(f'{colors.green}UAU! VOCÊ VENCEU {colors.blue}DE PRIMEIRA{colors.green}!MUITO BEM!{colors.end}')
+            print(f'{colors.green}UAU! VOCÊ VENCEU {colors.blue}DE PRIMEIRA{colors.green}! MUITO BEM!{colors.end}')
             continua = continuar()
         elif user == num:
             tentativa += 1
