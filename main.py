@@ -23,11 +23,13 @@ while continua:
             print(f'{colors.green}UAU! VOCÊ VENCEU {colors.blue}DE PRIMEIRA{colors.green}! MUITO BEM!{colors.end}')
             continua = continuar()
             tentativa = 0
+            num = gerado()
         elif user == num:
             tentativa += 1
             print(f'{colors.green}Parabéns! Você acertou com um total de {colors.blue}{tentativa} tentativas{colors.green}!{colors.end}')
             continua = continuar()
             tentativa = 0
+            num = gerado()
         else:
             if user > num:
                 print(f'Não foi dessa vez. Chute um número {colors.red_bold}MENOR!{colors.end}')
