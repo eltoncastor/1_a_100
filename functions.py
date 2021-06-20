@@ -42,7 +42,7 @@ def titulo():
     
     
 def gerado():
-    num = randrange(1,2)
+    num = randrange(1,101)
     return num
 
 
